@@ -6,8 +6,12 @@ namespace CadastroPessoa.Classes
     {
         public string? Cpf { get; set; }
 
-        public DateTime Datanasc { get; set; }
-        
+        internal void ValidarDataNasc(object dataNasc)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DateTime dataNasc { get; set; }
         
         
         
@@ -16,9 +20,39 @@ namespace CadastroPessoa.Classes
             throw new NotImplementedException();
         }
 
-        public bool ValidarDatNasc(DateTime dataNasc)
+        public bool ValidarDataNasc(DateTime dataNasc)
         {
-            throw new NotImplementedException();
+            DateTime dataAtual = DateTime.Today;
+
+            double anos = (dataAtual - dataNasc).TotalDays / 365;
+
+            if (anos >= 18)
+            {
+                return true;
+            }
+            
+            return false;  
+        }
+
+        public bool ValidarDataNasc(string dataNasc){
+
+            DateTime dataConvertida;
+
+            if(DateTime.TryParse(dataNasc, out dataConvertida))
+            {
+
+             DateTime dataAtual = DateTime.Today;
+
+            double anos = (dataAtual - dataConvertida).TotalDays / 365;
+
+            if (anos >= 18)
+            {
+                return true;
+            }
+            
+            return false;
+            }
+            return false;
         }
     }
 }

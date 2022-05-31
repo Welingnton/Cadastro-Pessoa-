@@ -1,12 +1,33 @@
 ﻿using CadastroPessoa.Classes;
 
 PessoaFisica novaPf = new PessoaFisica();
+PessoaFisica metodosPf = new PessoaFisica();
+Endereco novoEndPf = new Endereco();
 
 novaPf.Nome = "Odirlei";
+novaPf.dataNasc = new DateTime(2000, 01, 01);
+novaPf.Cpf = "1234567890";
+novaPf.Rendimento = 3500.5f;
 
-Console.WriteLine(novaPf.Nome);
+novoEndPf.logradouro = "Alameda Barao de Limeira";
+novoEndPf.numero = 539;
+novoEndPf.complemento = "Senai Informatica";
+novoEndPf.endComercial = true;
 
-Console.WriteLine($"Nome: {novaPf.Nome} Nome: {novaPf.Nome}");
-Console.WriteLine("Nome: " + novaPf.Nome + " Nome:" + novaPf.Nome);
+novaPf.Endereco = novoEndPf;
+
+Console.WriteLine(@$"
+Nome: {novaPf.Nome}
+Endereço: {novaPf.Endereco.logradouro}, {novaPf.Endereco.numero}
+Maior de idade: {metodosPf.ValidarDataNasc(novaPf.dataNasc)}
+");
+
+
+Console.WriteLine(novaPf.ValidarDataNasc(novaPf.dataNasc));
+
+
+
+//Console.WriteLine($"Nome: {novaPf.Nome} Nome: {novaPf.Nome}");
+//Console.WriteLine("Nome: " + novaPf.Nome + " Nome:" + novaPf.Nome);
 
 
