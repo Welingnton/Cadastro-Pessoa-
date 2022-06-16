@@ -92,6 +92,7 @@ Razão Social: {novaPj.RazaoSocial};
 CNPJ; {novaPj.Cnpj}, Válido: {(metodosPj.ValidarCnpj(novaPj.Cnpj) ? "Sim" : "Não")}
 Endereço: {novaPj.Endereco.logradouro}, Nº: {novaPj.Endereco.numero};
 Complemento: {novaPj.Endereco.complemento}
+Imposto a ser pago: {metodosPj.PagarImposto(novaPj.Rendimento).ToString("C")}
 ");
 
             Console.WriteLine($"Aperte ENTER para continuar");
