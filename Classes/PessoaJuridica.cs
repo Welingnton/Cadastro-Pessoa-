@@ -95,14 +95,14 @@ namespace CadastroPessoa.Classes
 
             // Nome Pj, 00000000000100, Razão Social Pj
 
-            foreach (var cadaLinha in linhas)
+            foreach (string cadaLinha in linhas)
             {
                 string[] atributos = cadaLinha.Split(",");
 
                 PessoaJuridica cadaPj = new PessoaJuridica();
 
                 cadaPj.Nome = atributos[0];
-                cadaPj.Cnpj = atributos [1];
+                cadaPj.RazaoSocial = atributos [1];
                 cadaPj.Cnpj = atributos [2];
 
                 listaPj.Add(cadaPj);
