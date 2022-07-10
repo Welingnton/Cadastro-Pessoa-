@@ -15,7 +15,12 @@ namespace CadastroPessoa.Classes
                 Thread.Sleep(tempo);
             }
             Console.ResetColor();
+        }
 
+
+
+        public static void VerificarPastaArquivo(){
+            
         }
     }
 }
