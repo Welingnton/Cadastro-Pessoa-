@@ -164,7 +164,7 @@ do
 
                         // }
 
-                        using (StreamReader sr = new StreamReader("Odirlei.txt"))
+                        using (StreamReader sr = new StreamReader("Welingnton.txt"))
                         {
                             string linha;
                             while ((linha = sr.ReadLine()) != null)
@@ -179,6 +179,7 @@ do
                         break;
 
                     case "0":
+
                         break;
 
                     default:
@@ -258,9 +259,7 @@ do
 
                         } while (cnpjValido == false);
 
-                        
                         novaPj.Cnpj = Console.ReadLine();
-
 
                         Console.WriteLine($"Digite o rendimento mensal (APENAS NÚMEROS)");
                         novaPj.Rendimento = float.Parse(Console.ReadLine());
@@ -289,6 +288,10 @@ do
 
                         novaPj.Endereco = novoEndPj;
 
+
+                        metodosPj.Inserir(novaPj);
+
+
                         listaPj.Add(novaPj);
 
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -302,8 +305,25 @@ do
                         Console.Clear();
 
                         if (listaPj.Count > 0)
+
                         {
+                        //      List<PessoaJuridica> ListPj = metodosPj.LerArquivo();
+
+                        // foreach (PessoaJuridica cadaItem in listaPj)
+                        // {
+                        //     Console.Clear();
+                        //     Console.WriteLine(@$"
+                        
+                        // Razão Social: {cadaItem.RazaoSocial}
+                        // CNPJ:{cadaItem.Cnpj},
+                        // ");
+
+                        //     Console.WriteLine($"Aperte ENTER para continuar");
+                        //     Console.ReadLine();
+
                             foreach (PessoaJuridica cadaPessoaJ in listaPj)
+
+
                             {
                                 Console.Clear();
                                 Console.WriteLine(@$"
@@ -321,12 +341,15 @@ do
 
 
                             }
-                        }
+                        } 
                         else
                         {
-                            Console.WriteLine($"Lista vazia.");
+                            Console.WriteLine($"Lista vazia!");
                             Thread.Sleep(2000);
                         }
+
+
+
                         break;
 
                     case "0":
