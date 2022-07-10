@@ -12,6 +12,7 @@ Console.WriteLine(@$"
 Utils.BarraCarregamento("Iniciando", 100, 40);
 
 List<PessoaFisica> listaPf = new List<PessoaFisica>();
+List<PessoaJuridica> listaPj = new List<PessoaJuridica>();
 
 string? opcao;
 do
@@ -44,7 +45,7 @@ do
 |    Escolha  umas das opções abaixo      |
 |-----------------------------------------|  
 |       1 - Cadastrar Pessoa Física       |
-|       2 - Listar Pessoas Física         |
+|       2 - Listar Pessoas Físicas        |
 |                                         |
 |       0 - Voltar ao menu anterior       |
 ==========================================
@@ -214,7 +215,7 @@ do
 |    Escolha  umas das opções abaixo      |
 |-----------------------------------------|  
 |       1 - Cadastrar Pessoa Jurídica     |
-|       2 - Listar Pessoas Jurídica       |
+|       2 - Listar Pessoas Jurídicas      |
 |                                         |
 |       0 - Voltar ao menu anterior       |
 ==========================================
@@ -307,13 +308,11 @@ do
                                 Console.Clear();
                                 Console.WriteLine(@$"
                         
-                        Nome: {cadaPessoaJ.Nome}
                         Razão Social: {cadaPessoaJ.RazaoSocial}
-                        CNPJ:{cadaPessoaJ.Cnpj}
-                        Endereco: {cadaPessoaJ.Endereco.logradouro}, N: {cadaPessoaJ.Endereco.numero}
-                        Complemento: {cadaPessoaJ.Endereco.complemento}
+                        CNPJ:{cadaPessoaJ.Cnpj}, 
+                        Endereco: {cadaPessoaJ.Endereco.logradouro}, N: {cadaPessoaJ.Endereco.numero}, Complemento: {cadaPessoaJ.Endereco.complemento}
                         Rendimento: {cadaPessoaJ.Rendimento}
-                        Imposto devido: Imposto a ser pago: {metodosPj.PagarImposto(cadaPessoaJ.Rendimento).ToString("C")}
+                        Imposto a ser pago: {metodosPj.PagarImposto(cadaPessoaJ.Rendimento).ToString("C")}
                         ");
 
 
