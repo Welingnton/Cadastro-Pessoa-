@@ -1,4 +1,5 @@
-﻿using CadastroPessoa.Classes;
+﻿using System.Text.RegularExpressions;
+using CadastroPessoa.Classes;
 
 Console.Clear();
 Console.WriteLine(@$"
@@ -63,60 +64,60 @@ do
                         Console.WriteLine($"Digite o nome da pessoa física que deseja cadastrar");
                         novaPf.Nome = Console.ReadLine();
 
-                        // bool dataValida;
-                        // do
-                        // {
-                        //     Console.WriteLine($"Digite a data de nascimento EX:DD/MM/AAAA");
-                        //     string? dataNascimento = Console.ReadLine();
+                        bool dataValida;
+                        do
+                        {
+                            Console.WriteLine($"Digite a data de nascimento EX:DD/MM/AAAA");
+                            string? dataNascimento = Console.ReadLine();
 
-                        //     dataValida = metodosPf.ValidarDataNasc(dataNascimento);
+                            dataValida = metodosPf.ValidarDataNasc(dataNascimento);
 
-                        //     if (dataValida)
-                        //     {
-                        //         DateTime DataConvertida;
-                        //         DateTime.TryParse(dataNascimento, out DataConvertida);
-                        //         novaPf.dataNasc = DataConvertida ;
+                            if (dataValida)
+                            {
+                                DateTime DataConvertida;
+                                DateTime.TryParse(dataNascimento, out DataConvertida);
+                                novaPf.dataNasc = DataConvertida;
 
-                        //     }
-                        //     else
-                        //     {
-                        //         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        //         Console.WriteLine($"Data digitada invalida, por favor digite uma data válida");
-                        //         Console.ResetColor();
-                        //         Thread.Sleep(3000);
-                        //     }
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine($"Data digitada invalida, por favor digite uma data válida");
+                                Console.ResetColor();
+                                Thread.Sleep(3000);
+                            }
 
-                        // } while (dataValida == false);
+                        } while (dataValida == false);
 
 
-                        // Console.WriteLine($"Digite o número do CPF");
-                        // novaPf.Cpf = Console.ReadLine();
+                        Console.WriteLine($"Digite o número do CPF");
+                        novaPf.Cpf = Console.ReadLine();
 
-                        // Console.WriteLine($"Digite o rendimento mensal (DIGITE SOMENTE NÚMEROS)");
-                        // novaPf.Rendimento = float.Parse(Console.ReadLine());
+                        Console.WriteLine($"Digite o rendimento mensal (DIGITE SOMENTE NÚMEROS)");
+                        novaPf.Rendimento = float.Parse(Console.ReadLine());
 
-                        // Console.WriteLine($"Digite o logradouro");
-                        // novoEndPf.logradouro = Console.ReadLine();
+                        Console.WriteLine($"Digite o logradouro");
+                        novoEndPf.logradouro = Console.ReadLine();
 
-                        // Console.WriteLine($"Digite o número");
-                        // novoEndPf.numero = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"Digite o número");
+                        novoEndPf.numero = int.Parse(Console.ReadLine());
 
-                        // Console.WriteLine($"Digite o complemente (Aperte ENTER para vazio)");
-                        // novoEndPf.complemento = Console.ReadLine();
+                        Console.WriteLine($"Digite o complemente (Aperte ENTER para vazio)");
+                        novoEndPf.complemento = Console.ReadLine();
 
-                        // Console.WriteLine($"Este endereço é comercial? S/N");
-                        // string endCom = Console.ReadLine().ToUpper();
+                        Console.WriteLine($"Este endereço é comercial? S/N");
+                        string endCom = Console.ReadLine().ToUpper();
 
-                        // if (endCom == "S")
-                        // {
-                        //     novoEndPf.endComercial = true;
-                        // }
-                        // else
-                        // {
-                        //     novoEndPf.endComercial = false;
-                        // }
+                        if (endCom == "S")
+                        {
+                            novoEndPf.endComercial = true;
+                        }
+                        else
+                        {
+                            novoEndPf.endComercial = false;
+                        }
 
-                        // novaPf.Endereco = novoEndPf;
+                        novaPf.Endereco = novoEndPf;
 
                         listaPf.Add(novaPf);
 
@@ -241,9 +242,27 @@ do
                         Console.WriteLine($"Digite a razão social da empresa:");
                         novaPj.RazaoSocial = Console.ReadLine();
 
+                        bool cnpjValido;
+                        do
+                        {
+                            Console.WriteLine($"Digite o número do CNPJ (Apenas números)");
+                            string? CnpjValido = Console.ReadLine();
 
-                        Console.WriteLine($"Digite o número do CNPJ (Apenas números)");
-                        novaPj.Cnpj = Console.ReadLine();
+                            cnpjValido = metodosPj.ValidarCnpj(CnpjValido);
+
+                            if (cnpjValido)
+                            {
+                                novaPj.Cnpj = CnpjValido;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine($"CNPJ inválido, por favor digite novamente !");
+                                Console.ResetColor();
+                                Thread.Sleep(3000);
+
+                            }
+                        } while (cnpjValido == false);
 
                         Console.WriteLine($"Digite o rendimento mensal:");
                         novaPj.Rendimento = float.Parse(Console.ReadLine());
@@ -282,6 +301,7 @@ do
                         Console.ResetColor();
                         Thread.Sleep(2000);
 
+
                         break;
 
                     case "2":
@@ -292,18 +312,18 @@ do
                         {
                             // List<PessoaJuridica> ListPj = metodosPj.LerArquivo();
 
-                        //     foreach (PessoaJuridica cadaItem in listaPj)
-                        //     {
-                        //         Console.Clear();
-                        //         Console.WriteLine(@$"
-                        
-                        // Razão Social: {cadaItem.RazaoSocial}
-                        // CNPJ:{cadaItem.Cnpj},
-                        // ");
+                            //     foreach (PessoaJuridica cadaItem in listaPj)
+                            //     {
+                            //         Console.Clear();
+                            //         Console.WriteLine(@$"
 
-                        //         Console.WriteLine($"Aperte ENTER para continuar");
-                        //         Console.ReadLine();
-                        //     }
+                            // Razão Social: {cadaItem.RazaoSocial}
+                            // CNPJ:{cadaItem.Cnpj},
+                            // ");
+
+                            //         Console.WriteLine($"Aperte ENTER para continuar");
+                            //         Console.ReadLine();
+                            //     }
 
                             foreach (PessoaJuridica cadaPessoaJ in listaPj)
 
@@ -356,8 +376,8 @@ do
 
             break;
 
-            // Console.WriteLine($"Aperte ENTER para continuar");
-            // Console.ReadLine();
+        // Console.WriteLine($"Aperte ENTER para continuar");
+        // Console.ReadLine();
 
 
         case "0":
