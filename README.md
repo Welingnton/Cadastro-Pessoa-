@@ -4,7 +4,7 @@
 
 Sistema desenvolvido para o cadastro de pessoas físicas e jurídicas e calculo do imposto devido de acordo com o rendimento.
 
-# Tecnologias utilizadas
+# Tecnologias Utilizadas
 
 C#
 
@@ -38,7 +38,7 @@ Endereço
 
 Rendimento Mensal
 
-# Pré requisitos de instação 
+# Pré-requisitos de Instação 
 
 Instalar o Visual Studio Code
 
@@ -48,7 +48,7 @@ Instalar o Visual Studio Code
 
 dotnet run
 
-# Erros comuns
+# Erros Comuns
 
 Digitar comandos errados no terminal
 
