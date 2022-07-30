@@ -12,7 +12,7 @@ VS Code
 
 # Organização do Projeto
 
-O sistema possui menu e um submenu, onde é possível cadastrar e cosultar os cadastros no banco de dados.
+O sistema possui menu e submenu, onde é possível cadastrar e cosultar os cadastros no banco de dados.
 
 Os cadastros de Pessoa Física e Jurídica possui as seguintes informações:
 
@@ -29,6 +29,7 @@ Endereço
 Rendimento Mensal
 
 Pessoa Jurídica:
+
 Razão Social
 
 CNPJ
@@ -51,9 +52,9 @@ dotnet run
 
 Digitar comandos errados no terminal
 
-Falta de instalação do .NET e outras extenções
+Falta da instalação do .NET e outras extenções
 
 # Contribuidores
 
-Welingnton Luiz Figueiredo e Associados
+Welingnton Luiz Figueiredo
 
