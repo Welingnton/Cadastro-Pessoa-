@@ -38,7 +38,7 @@ Rendimento Mensal
 
 # Pré requisitos de instação 
 
-# Instalar o Visual Studio Code
+Instalar o Visual Studio Code
 
 .NET
 
