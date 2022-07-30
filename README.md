@@ -7,6 +7,7 @@ Sistema desenvolvido para o cadastro de pessoas físicas e jurídicas e calculo 
 # Tecnologias utilizadas
 
 C#
+
 VS Code
 
 # Organização do Projeto
